@@ -7,34 +7,19 @@ namespace Aptos.Unity.SDK.Generated.Core
         GET, PUT, POST, DELETE, OPTIONS, HEAD, PATCH
     }
 
-public class ApiRequestOptions
-{
-    public readonly Method Method;
-    public readonly string Url;
-    public readonly Dictionary<string, object> Path;
-    public readonly Dictionary<string, object> Cookies;
-    public readonly Dictionary<string, object> Headers;
-    public readonly Dictionary<string, object> Query;
-    public readonly Dictionary<string, object> FormData;
-    public readonly object Body;
-    public readonly string MediaType;
-    public readonly string ResponseHeader;
-    public readonly Dictionary<int, string> Errors;
-
-    public ApiRequestOptions(Method method, string url, Dictionary<string, object> path = null, Dictionary<string, object> cookies = null, Dictionary<string, object> headers = null, Dictionary<string, object> query = null, Dictionary<string, object> formData = null, object body = null, string mediaType = null, string responseHeader = null, Dictionary<int, string> errors = null)
+    public class ApiRequestOptions
     {
-        Method = method;
-        Url = url;
-        Path = path;
-        Cookies = cookies;
-        Headers = headers;
-        Query = query;
-        FormData = formData;
-        Body = body;
-        MediaType = mediaType;
-        ResponseHeader = responseHeader;
-        Errors = errors;
+        public Method method { get; } // the HTTP method (GET, PUT, POST, DELETE, OPTIONS, HEAD, PATCH)
+        public string url { get; } // the URL of the API endpoint
+        public IDictionary<string, object> path { get; set; } // optional, a dictionary containing path parameters for the request
+        public IDictionary<string, object> cookies { get; set; } // optional, a dictionary containing cookies to be sent with the request
+        public IDictionary<string, object> headers { get; set; } // optional, a dictionary containing headers to be sent with the request
+        public IDictionary<string, object> query { get; set; } // optional, a dictionary containing query parameters for the request
+        public IDictionary<string, object> formData { get; set; } // optional, a dictionary containing form data to be sent with the request
+        public object body { get; set; } // optional, the request body
+        public string mediaType { get; set; } // optional, the media type of the request body
+        public string responseHeader { get; set; } // optional, the expected response header
+        public IDictionary<int, string> errors { get; set; } // optional, a dictionary containing error codes and their associated messages
     }
-}
 
 }

@@ -1,25 +1,23 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace Aptos.Unity.SDK.Generated.Core
 {
     public class ApiError : Exception
     {
-        public readonly string Url;
-        public readonly int Status;
-        public readonly string StatusText;
-        public readonly object Body;
-        public readonly ApiRequestOptions Request;
+        public string url { get; }
+        public int status { get; }
+        public string statusText { get; }
+        public dynamic body { get; }
+        public ApiRequestOptions request { get; }
 
-        public ApiError(ApiRequestOptions request, ApiResult response, string message) : base(message)
+        public ApiError(ApiRequestOptions request, ApiResult response, string message)
+            : base(message)
         {
-            Url = response.Url;
-            Status = response.Status;
-            StatusText = response.StatusText;
-            Body = response.Body;
-            Request = request;
+            this.url = response.url;
+            this.status = response.status;
+            this.statusText = response.statusText;
+            this.body = response.body;
+            this.request = request;
         }
     }
 

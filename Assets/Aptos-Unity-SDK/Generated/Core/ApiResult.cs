@@ -2,20 +2,19 @@ namespace Aptos.Unity.SDK.Generated.Core
 {
     public class ApiResult
     {
-        public readonly string Url;
-        public readonly bool Ok;
-        public readonly int Status;
-        public readonly string StatusText;
-        public readonly object Body;
+        public string url { get; }
+        public bool ok { get; }
+        public int status { get; }
+        public string statusText { get; }
+        public dynamic body { get; }
 
-        public ApiResult(string url, bool ok, int status, string statusText, object body)
+        public ApiResult(string url, bool ok, int status, string statusText, dynamic body)
         {
-            Url = url;
-            Ok = ok;
-            Status = status;
-            StatusText = statusText;
-            Body = body;
+            this.url = url;
+            this.ok = ok;
+            this.status = status;
+            this.statusText = statusText;
+            this.body = body;
         }
     }
-
 }
